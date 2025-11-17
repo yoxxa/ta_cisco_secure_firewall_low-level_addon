@@ -40,15 +40,31 @@
                         },
                         {
                             "type": "text",
-                            "label": "API key",
-                            "field": "api_key",
-                            "help": "API key",
+                            "label": "Username",
+                            "field": "username",
+                            "help": "Username for Firepower Management Center (FMC)",
+                            "required": true,
+                            "encrypted": false,
+                            "validators": [
+                                {
+                                    "type": "string",
+                                    "errorMsg": "Length of username should be between 1 and 50",
+                                    "minLength": 1,
+                                    "maxLength": 50
+                                }
+                            ]
+                        },
+                        {
+                            "type": "text",
+                            "label": "password",
+                            "field": "password",
+                            "help": "Password for Firepower Management Center (FMC)",
                             "required": true,
                             "encrypted": true,
                             "validators": [
                                 {
                                     "type": "string",
-                                    "errorMsg": "Length of API key should be between 1 and 50",
+                                    "errorMsg": "Length of password should be between 1 and 50",
                                     "minLength": 1,
                                     "maxLength": 50
                                 }
@@ -97,7 +113,7 @@
                             "options": {
                                 "range": [
                                     10,
-                                    301
+                                    600
                                 ]
                             },
                             "help": "Time interval of the data input, in seconds.",
@@ -192,9 +208,9 @@
     "meta": {
         "name": "ta_cisco_secure_firewall_low-level_addon",
         "restRoot": "ta_cisco_secure_firewall_low-level_addon",
-        "version": "0.0.1",
+        "version": "0.0.0+caf7e23",
         "displayName": "Cisco Secure Firewall Low-level Add-on for Splunk",
-        "schemaVersion": "0.0.8",
+        "schemaVersion": "0.0.10",
         "supportedThemes": [
             "light",
             "dark"
